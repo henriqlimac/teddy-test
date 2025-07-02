@@ -1,0 +1,25 @@
+@use "tailwindcss";
+
+.td-login {
+  @apply min-h-screen w-full flex items-center justify-center;
+
+  &__dialog {
+    @apply flex flex-col items-center gap-5;
+
+    > h1 {
+      @apply text-4xl;
+    }
+
+    > input {
+      @apply w-[500px] p-2 px-4 border-2 border-[#D9D9D9] rounded text-xl;
+
+      &::placeholder {
+        @apply text-[#AAAAAA];
+      }
+    }
+
+    > button {
+      @apply cursor-pointer w-full bg-[#EC6724] text-white p-3 rounded font-semibold;
+    }
+  }
+}
