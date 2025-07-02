@@ -1,0 +1,22 @@
+@use "tailwindcss";
+
+.td-pagination {
+  @apply w-full flex items-center justify-center;
+
+  &__list {
+    @apply flex items-center gap-1;
+  }
+
+  &__item {
+
+    >button {
+      @apply cursor-pointer h-[35px] w-[35px] rounded font-semibold flex items-center justify-center
+    }
+
+    &--active {
+      >button {
+        @apply font-semibold bg-[#EC6724] text-white flex items-center justify-center
+      }
+    }
+  }
+}

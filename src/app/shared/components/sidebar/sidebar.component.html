@@ -1,0 +1,25 @@
+<aside [ngClass]="{ 'td-sidebar--active': isActive() }" class="td-sidebar">
+  <div class="td-sidebar__logo">
+    <img src="teddy-logo.png" alt="Logo" />
+  </div>
+  <div class="td-sidebar__list">
+    <button (click)="onClose()" class="td-sidebar__btn-close">
+      <lucide-angular [img]="arrowLeftIcon" size="12px"></lucide-angular>
+    </button>
+
+    <ul class="td-sidebar__nav">
+      @for (route of routes; track route.href){
+      <li
+        class="td-sidebar__nav-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="td-sidebar__nav-item--active"
+      >
+        <a [routerLink]="route.href" (click)="onClose()">
+          <lucide-angular [img]="route.icon" size="18px"></lucide-angular>
+          <span>{{ route.label }}</span>
+        </a>
+      </li>
+      }
+    </ul>
+  </div>
+</aside>

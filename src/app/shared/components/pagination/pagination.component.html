@@ -1,0 +1,13 @@
+<nav class="td-pagination" *ngIf="total() > 1">
+  <ul class="td-pagination__list">
+    @for (page of pages(); track $index) {
+    <li class="td-pagination__item" [class.td-pagination__item--active]="page === current()">
+      @if (page !== '...') {
+      <button (click)="goToPage(page)">{{ page }}</button>
+      } @else if (page === '...') {
+      <span>...</span>
+      }
+    </li>
+    }
+  </ul>
+</nav>

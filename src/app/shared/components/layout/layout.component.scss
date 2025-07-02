@@ -1,0 +1,13 @@
+@use "tailwindcss";
+
+.td-app {
+  @apply min-h-screen h-full;
+
+  &__content {
+    @apply min-h-screen bg-[#F5F5F5] h-full;
+  }
+
+  &__main {
+    @apply max-w-[1200px] w-full mx-auto py-7;
+  }
+}

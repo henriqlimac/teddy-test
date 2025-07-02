@@ -1,0 +1,30 @@
+<header class="td-header">
+  @let user = user$ | async;
+  <div class="td-header__info">
+    <button (click)="openSidebar()" class="td-header__menu-icon">
+      <lucide-icon [img]="MenuIcon" size="24px"></lucide-icon>
+    </button>
+    <img class="td-header__logo" src="teddy-logo.png" alt="Logo" />
+  </div>
+  <div class="td-header__nav">
+    <ul class="td-header__nav-list">
+      @for (route of routes; track route.label) {
+      <li class="td-header__nav-item">
+        <a
+          [routerLink]="route.href"
+          routerLinkActive="td-header__nav-item-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ route.label }}
+        </a>
+      </li>
+      }
+    </ul>
+  </div>
+  <div class="td-header__user">
+    <span>
+      Olá,
+      <strong>{{ user?.name }}</strong>!
+    </span>
+  </div>
+</header>

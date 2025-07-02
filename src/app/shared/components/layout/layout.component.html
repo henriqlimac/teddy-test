@@ -1,0 +1,12 @@
+<div class="td-app">
+  <app-sidebar
+    (close)="isSidebarOpen = false"
+    [isActive]="isSidebarOpen"
+  ></app-sidebar>
+  <div class="td-app__content">
+    <app-header (isSidebarOpen)="isSidebarOpen = true"></app-header>
+    <main class="td-app__main">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

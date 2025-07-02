@@ -1,0 +1,55 @@
+@use "tailwindcss";
+
+.td-sidebar {
+  @apply fixed w-full h-full bg-white transition;
+
+  transform: translateX(-120%);
+
+  @media(min-width: 1200px) {
+    @apply w-72;
+  }
+
+  &--active {
+    transform: translateX(0) !important;
+  }
+
+  &__logo {
+    @apply w-full flex items-center justify-center h-32 bg-white;
+
+    >img {
+      @apply w-24;
+    }
+  }
+
+  &__list {
+    @apply relative h-full flex flex-col;
+  }
+
+  &__btn-close {
+    @apply cursor-pointer absolute top-[-24px] -right-[20px] bg-white text-[#1F1F1F] border-[16px] p-0.5 rounded-full h-fit;
+  }
+
+  &__nav {
+    @apply p-3 pr-0 flex flex-col;
+  }
+
+  &__nav-item {
+    @apply cursor-pointer bg-white transition border-r-3 border-transparent;
+
+    &:hover {
+      @apply text-[#EE7D46];
+    }
+
+    >a {
+      @apply p-3 px-4 flex items-center justify-start gap-2;
+    }
+
+    &--active {
+      @apply text-[#EE7D46] border-[#EE7D46];
+    }
+  }
+
+  &__logout {
+    @apply mt-auto;
+  }
+}

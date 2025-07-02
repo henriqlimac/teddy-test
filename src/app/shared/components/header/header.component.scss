@@ -1,0 +1,43 @@
+@use "tailwindcss";
+
+.td-header {
+  @apply w-full py-3 px-16 grid grid-cols-3 bg-white;
+
+  box-shadow: 0 2px 2px #0000001A;
+
+  &__info {
+    @apply flex items-center gap-12;
+  }
+
+  &__menu-icon {
+    @apply cursor-pointer;
+  }
+
+  &__logo {
+    @apply w-24 object-cover;
+  }
+
+  &__nav-list {
+    @apply hidden w-full h-full items-center justify-center gap-12;
+
+    @media (min-width: 1200px) {
+      @apply flex;
+    }
+  }
+
+  &__nav-item {
+    @apply transition;
+
+    :hover {
+      @apply text-[#EC6724];
+    }
+  }
+
+  &__nav-item-active {
+    @apply text-[#EC6724] underline;
+  }
+
+  &__user {
+    @apply w-full flex items-center justify-end;
+  }
+}
