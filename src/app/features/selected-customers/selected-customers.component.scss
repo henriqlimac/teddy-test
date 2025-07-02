@@ -1,0 +1,41 @@
+@use 'tailwindcss';
+
+.td-selected {
+  @apply w-full flex flex-col gap-3 px-4;
+
+  &__info {
+    @apply w-full flex justify-between items-center;
+  }
+
+  &__items {
+    @apply grid grid-cols-1 gap-5;
+
+    @media(min-width: 625px) {
+      @apply grid-cols-2;
+    }
+
+    @media (min-width: 1024px) {
+      @apply grid-cols-3;
+    }
+
+    @media (min-width: 1200px) {
+      @apply grid-cols-4;
+    }
+  }
+
+  &__empty-state {
+    @apply w-full bg-[#e7e7e7] col-start-1 col-end-5 p-2 rounded flex items-center justify-center text-sm;
+  }
+
+  &__clear {
+    @apply w-full cursor-pointer border-2 border-[#EC6724] text-[#EC6724] font-semibold text-[14px] rounded p-1 transition;
+
+    &:hover {
+      @apply bg-[#EC6724]/5;
+    }
+
+    &:active {
+      @apply bg-[#EC6724]/10;
+    }
+  }
+}

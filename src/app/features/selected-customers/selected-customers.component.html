@@ -1,0 +1,22 @@
+<div class="td-selected">
+  @let customers = customers$ | async;
+  <div class="td-selected__info">
+    <strong>Clientes selecionados:</strong>
+  </div>
+  <div class="td-selected__items">
+    @if(customers) { @for(customer of customers; track customer.id) {
+    <app-customer-card
+      [customer]="customer"
+      [showActions]="false"
+      (changed)="fetchData()"
+    />
+    } @empty {
+    <div class="td-selected__empty-state">
+      <span>Nenhum cliente foi selecionado</span>
+    </div>
+    } }
+  </div>
+  <button (click)="clearAll()" class="td-selected__clear">
+    Limpar clientes selecionados
+  </button>
+</div>

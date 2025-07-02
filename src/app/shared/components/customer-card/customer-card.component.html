@@ -1,0 +1,34 @@
+<div class="td-card">
+  @let data = customer();
+  <span class="td-card__username">{{ data?.name }}</span>
+  <span class="td-card__salary"
+    >Salário: {{ data?.salary | currency : "BRL" : "symbol" : "0.0-2" }}</span
+  >
+  <span class="td-card__company"
+    >Empresa:
+    {{ data?.companyValuation | currency : "BRL" : "symbol" : "1.0-2" }}</span
+  >
+  <div class="td-card__actions">
+    @if (showActions()) {
+    <button (click)="deleteCustomer(data)">
+      <lucide-icon [img]="Trash" size="17px"></lucide-icon>
+    </button>
+    <button (click)="updateCustomer(data)">
+      <lucide-icon [img]="Pen" size="17px"></lucide-icon>
+    </button>
+
+    @if (!isSelected(data?.id)) {
+    <button (click)="selectCustomer(data?.id)">
+      <lucide-icon [img]="Plus" size="17px"></lucide-icon>
+    </button>
+    } @else {
+    <button (click)="deselectCustomer(data?.id)">
+      <lucide-icon [img]="Minus" size="17px"></lucide-icon>
+    </button>
+    } } @else {
+    <button (click)="deselectCustomer(data?.id)">
+      <lucide-icon [img]="Minus" size="17px"></lucide-icon>
+    </button>
+    }
+  </div>
+</div>

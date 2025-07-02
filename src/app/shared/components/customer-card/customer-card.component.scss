@@ -1,0 +1,39 @@
+@use "tailwindcss";
+
+.td-card {
+  @apply w-full bg-white rounded p-5 flex flex-col items-center gap-1;
+
+  box-shadow: 0 0 2px #0000001A;
+
+  &__username {
+    @apply font-semibold;
+  }
+
+  &__actions {
+    @apply w-full flex flex-row-reverse items-center justify-between;
+
+    >button {
+      @apply cursor-pointer rounded-full p-2 transition;
+
+      &:hover {
+        @apply bg-zinc-100 scale-110;
+      }
+
+      &:active {
+        @apply bg-zinc-200 scale-95;
+      }
+
+      &:first-child {
+        @apply text-red-400;
+
+        &:hover {
+          @apply bg-red-100;
+        }
+
+        &:active {
+          @apply bg-red-200;
+        }
+      }
+    }
+  }
+}
