@@ -1,0 +1,63 @@
+<div class="td-modal" [ngClass]="{ 'td-modal--active': show() }">
+  <div
+    class="td-modal__backdrop"
+    [hidden]="!show()"
+    [ngClass]="{ 'td-modal__backdrop--active': show() }"
+    (click)="onClose()"
+  ></div>
+  <div
+    class="td-modal__dialog"
+    [hidden]="!show()"
+    [ngClass]="{ 'td-modal__dialog--active': show() }"
+  >
+    <div class="td-modal__top">
+      @if(isNew && !isDeleting()) {
+      <h1>Criar cliente:</h1>
+      } @else if(!isNew && !isDeleting()) {
+      <h1>Atualizar cliente:</h1>
+      } @else if(isDeleting()) {
+      <h1>Excluir cliente:</h1>
+      }
+      <button (click)="onClose()">
+        <lucide-icon [img]="X" size="17px"></lucide-icon>
+      </button>
+    </div>
+    @if(!isDeleting()) {
+    <div class="td-modal__body">
+      <input
+        type="text"
+        placeholder="Digite o nome:"
+        [(ngModel)]="customer.name"
+      />
+      <input
+        type="number"
+        placeholder="Digite o salário:"
+        min="0"
+        [(ngModel)]="customer.salary"
+      />
+      <input
+        type="number"
+        placeholder="Digite o valor da empresa:"
+        min="0"
+        [(ngModel)]="customer.companyValuation"
+      />
+    </div>
+    } @if(isDeleting()) {
+    <div class="td-modal__body">
+      <p>
+        Você está prestes a excluir o usuário:
+        <strong>{{ customer.name }}</strong>
+      </p>
+    </div>
+    }
+    <div class="td-modal__footer">
+      @if(isNew && !isDeleting()) {
+      <button (click)="createClient()">Criar cliente</button>
+      } @else if(!isNew && !isDeleting()) {
+      <button (click)="updateCustomer()">Atualizar cliente</button>
+      } @else if(isDeleting()) {
+      <button (click)="deleteCustomer()">Excluir cliente</button>
+      }
+    </div>
+  </div>
+</div>

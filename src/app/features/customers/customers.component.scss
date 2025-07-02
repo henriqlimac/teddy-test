@@ -1,0 +1,73 @@
+@use "tailwindcss";
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.td-customers {
+  @apply w-full flex flex-col gap-3 px-4;
+
+  &__info {
+    @apply w-full flex justify-between items-center;
+  }
+
+  &__items {
+    @apply grid grid-cols-1 gap-5;
+
+    @media(min-width: 625px) {
+      @apply grid-cols-2;
+    }
+
+    @media (min-width: 1024px) {
+      @apply grid-cols-3;
+    }
+
+    @media (min-width: 1200px) {
+      @apply grid-cols-4;
+    }
+  }
+
+  &__empty-state {
+    @apply w-full bg-[#e7e7e7] col-start-1 col-end-5 p-2 rounded flex items-center justify-center text-sm;
+  }
+
+  &__loading-state {
+    @apply p-[20px] w-full h-[160px] bg-white p-2 rounded flex flex-col items-center justify-center gap-3 text-sm;
+  }
+
+  &__loading-skeleton {
+    &--name {
+      @apply w-[100px] h-[24px] rounded-full bg-zinc-100;
+    }
+
+    &--salary {
+      @apply w-[134px] h-[24px] rounded-full bg-zinc-100;
+    }
+
+    &--company {
+      @apply w-[160px] h-[24px] rounded-full bg-zinc-100;
+    }
+
+    &--actions {
+      @apply w-full flex items-center justify-between;
+    }
+
+    &--action {
+      @apply w-[33px] h-[33px] rounded-full bg-zinc-100;
+    }
+  }
+
+  &__create {
+    @apply cursor-pointer border-2 border-[#EC6724] text-[#EC6724] font-semibold text-[14px] rounded p-1 transition;
+
+    &:hover {
+      @apply bg-[#EC6724]/5;
+    }
+
+    &:active {
+      @apply bg-[#EC6724]/10;
+    }
+  }
+}

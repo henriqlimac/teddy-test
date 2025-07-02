@@ -1,0 +1,66 @@
+<div class="td-customers">
+  <div class="td-customers__info">
+    @if(isLoading) {
+    <span> Procurando clientes... </span>
+    } @if(!isLoading) {
+    <span>
+      <strong>{{ content().clients.length }}</strong> clientes encontrados:
+    </span>
+    <div>
+      <span>Clientes por página:</span>
+      <select [(ngModel)]="pageSize" (ngModelChange)="sizeChanged()">
+        <option value="8">8</option>
+        <option value="12">12</option>
+        <option value="16">16</option>
+      </select>
+    </div>
+    }
+  </div>
+  <div class="td-customers__items">
+    @for (item of content().clients; track item.id) {
+    <app-customer-card
+      [customer]="item"
+      [showActions]="true"
+      (update)="updateCustomer($event)"
+      (delete)="deleteCustomer($event)"
+    />
+    } @empty { 
+      @if(!isLoading) {
+        <div class="td-customers__empty-state">
+          <span>Nenhum cliente foi encontrado</span>
+        </div>
+      } 
+    } 
+    @for(item of [0, 1, 2, 3]; track item) {
+    <div *ngIf="isLoading" class="td-customers__loading-state">
+      <span class="td-customers__loading-skeleton--name"></span>
+      <span class="td-customers__loading-skeleton--salary"></span>
+      <span class="td-customers__loading-skeleton--company"></span>
+      <div class="td-customers__loading-skeleton--actions">
+        <span class="td-customers__loading-skeleton--action"></span>
+        <span class="td-customers__loading-skeleton--action"></span>
+        <span class="td-customers__loading-skeleton--action"></span>
+      </div>
+    </div>
+    }
+  </div>
+  <button (click)="newClient()" class="td-customers__create">
+    Criar cliente
+  </button>
+  <div class="td-customers__pagination">
+    <app-pagination
+      [current]="currentPage"
+      [total]="content().totalPages"
+      (change)="goToPage($event)"
+    />
+  </div>
+</div>
+
+<app-modal
+  (customerUpdated)="fetchData()"
+  (close)="isModalOpen = false"
+  [show]="isModalOpen"
+  [isNew]="isNew"
+  [isDeleting]="isDeleting"
+  [customerData]="customerData"
+/>
