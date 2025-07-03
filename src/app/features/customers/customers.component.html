@@ -57,7 +57,7 @@
 </div>
 
 <app-modal
-  (customerUpdated)="fetchData()"
+  (customerUpdated)="fetchData(); goToPage(1)"
   (close)="isModalOpen = false"
   [show]="isModalOpen"
   [isNew]="isNew"
