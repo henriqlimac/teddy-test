@@ -1,59 +1,104 @@
 # TeddyTest
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+This project was created as part of a front-end technical evaluation for a Mid-Level Angular Developer. It demonstrates the use of modern Angular practices, component architecture, and integration with external APIs.
 
-## Development server
+## Project Overview
 
-To start a local development server, run:
+The objective of this project is to showcase the implementation of a clean and maintainable front-end architecture using Angular. It focuses on modular design, state management, responsive styling, and efficient data handling.
+
+## Features
+
+- Modular front-end built with **Angular**
+- Global state management using **NgRx**
+- Consumption of remote APIs with proper error handling
+- Component-level **unit testing**
+- Styling with **TailwindCSS** utility-first framework
+- Semantic and scalable CSS structure using the **BEM** methodology
+- Consistent use of modern Angular best practices
+
+## Folder Structure
+
+   ```bash
+    teddy-test/
+    │
+    ├── public/                         # Static public assets
+    ├── src/                            # Application source code
+    │   ├── app/                        # Root Angular app module
+    │   │   ├── core/                   # Core module: services, guards, models
+    │   │   ├── features/               # Feature modules (e.g., customers, login)
+    │   │   └── shared/                 # Shared module: reusable components, store
+    │   │
+    ├── angular.json                    # Angular workspace configuration
+    ├── package.json                    # Project dependencies and scripts
+    ├── tsconfig.json                   # TypeScript configuration
+    └── README.md                       # Project documentation
+   ```
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/henriqlimac/teddy-test.git
+   cd teddy-test
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the application locally:
+
+   ```bash
+   ng serve
+   ```
+
+   Once the server is running, open your browser and navigate to http://localhost:4200/. The application will automatically reload on code changes.
+
+## Building for Production
+
+To build the application for production run:
 
 ```bash
-ng serve
+ng build --configuration production
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The compiled files will be located in the `dist/` directory.
 
-## Code scaffolding
+## Deployment
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Docker
 
-```bash
-ng generate component component-name
-```
+To containerize and run the application using Docker:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Build the Docker image:
 
-```bash
-ng generate --help
-```
+   ```bash
+   docker build -t teddy-test .
+   ```
 
-## Building
+2. Run the Docker container:
 
-To build the project run:
+   ```bash
+   docker run -d -p 80:80 teddy-test
+   ```
 
-```bash
-ng build
-```
+## Vercel
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The application is also deployed and publicly accessible [here](https://teddy-test-six.vercel.app/).
 
-## Running unit tests
+## Objectives
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Achieve a **well-structured and maintainable codebase** following the best practices.
+- Apply **component-driven development** using reusable and testable Angular components.
+- Ensure **scalability** and **readability** through effective state management and separation of concerns.
+- Practice professional front-end development workflows and **testing strategies**.
 
-```bash
-ng test
-```
+## Resources
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular Documentation](https://angular.dev/)
+- [NgRx Documentation](https://ngrx.io/)
+- [TailwindCSS Documentation](https://tailwindcss.com/)
+- [API consumed - Swagger Docs](https://boasorte.teddybackoffice.com.br/docs#/)
